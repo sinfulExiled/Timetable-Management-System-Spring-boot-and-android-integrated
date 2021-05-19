@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TMS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/pics/banger.png" type="image/gif" sizes="16x16" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="LoggedInusers/HomePageCss2.css" rel="stylesheet"
+	type="text/css" />
+
+<link href="/HomePageCss2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+
+
+	<div class="top-logo">
+		<header>
+			<img src="/pics/banger.png" alt=""
+				style="width: 250px; height: 100px;" />
+			<div class="headers">
+				<h1>TMS</h1>
+			</div>
+
+			<div class="widgets">
+				<a href="https://www.facebook.com/" class="fa fa-facebook"></a> <a
+					href="https://twitter.com/" class="fa fa-twitter"></a>
+			</div>
+		</header>
+	</div>
+	<div class="top-container">
+		<h1>Timetable Management System</h1>
+		<div class="topnav">
+
+			<a class="active" th:href = "@{/TeacherHome}">View Timetable</a>
+				<a th:href = "@{/viewTeacherHolidays}">Teacher Holidays</a>
+				<a th:href = "@{/gotoTeachRooms}">Rooms Availability</a> 
+				<a th:href = "@{/teacherRoomspage}">Reserve Rooms</a> 
+
+			<div class="logged topnav-right">
+				<h3 id="username"></h3>
+
+			</div>
+
+			<script th:inline="javascript">
+
+/*<![CDATA[*/
+  var myval = /*[[${mykey}]]*/ "Test";
+  var listVals = /*[[${myList}]]*/ "Test1";
+/*]]>*/
+
+console.log("check "+myval);
+ var usernameDiv = document.getElementById("username");
+ var tq = document.createTextNode(myval);
+ var q = document.createElement("P");
+ q.appendChild(tq);
+ usernameDiv.appendChild(q);
+ 
+ var mainDiv = document.getElementById("main");
+ for(i=0; i<listVals.length; i++){
+	 //create text node
+	 var t = document.createTextNode(listVals[i].name+' '+listVals[i].age);
+	 //create para node
+	 var p = document.createElement("P");
+	 //attach text to para
+	 p.appendChild(t);
+	 //attach para to div
+	 mainDiv.appendChild(p);
+ }
+ 
+
+</script>
+		</div>
+		<div class="main">
+			<div class="heading">
+			
+					<b>Student Time table</b>
+			
+			</div>
+
+
+			<br>
+			<div class="row">
+				<!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
+
+				<div class="container" style="overflow-x: auto">
+
+					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20"
+						data-validate="Vocation">
+						<select id="selectBox" onchange="changeFunc();" class="input100">
+							
+							<option onclick="location.href='/batchtimetableListTeach/IF1931SE'" value="IF1931SE">IF1931SE</option>
+							<option onclick="location.href='/batchtimetableListTeach/HF2071SE'" value="HF2071SE">HF2071SE</option>
+							<option onclick="location.href='/batchtimetableListTeach/Class1'" value="Class1">Class1</option>
+   						
+						</select> <span class="focus-input100"></span>
+					</div>
+					<hr>
+
+
+
+					<br>
+					<table class="table table-bordered" style="overflow-x: auto">
+						<thead>
+							<tr>
+								<th>Timetable Management</th>
+
+
+							</tr>
+							<tr>
+								<th>Batch</th>
+								<th>Date</th>
+								<th>Day</th>
+								<th>Time</th>
+								<th>Venue</th>
+								<th>Lecturer Name</th>
+								<th>Module</th>
+								<th>Type</th>
+
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr th:each=" classes : ${batchClassList}">
+							<td th:text="${classes.batch}"></td>
+				<td th:text="${classes.date}"></td>
+				<td th:text="${classes.day}"></td>
+				<td th:text="${classes.time}"></td>
+				<td th:text="${classes.venue}"></td>
+				<td th:text="${classes.lecturerName}"></td>
+				
+				<td th:text="${classes.module}"></td>
+				<td th:text="${classes.degreeType}"></td>
+				
+				
+			</tr>
+
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+			<br>
+
+
+
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+	</div>
+
+</body>
+</html>

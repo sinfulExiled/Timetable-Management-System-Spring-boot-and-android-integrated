@@ -1,0 +1,177 @@
+<!DOCTYPE html>    
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+        <title>TMS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="pics/banger.png" type="image/gif" sizes="16x16"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+        <link href="css/LogInCss.css" rel="stylesheet" type="text/css"/>
+        
+    </head>
+    <body>
+
+        <div class="top-logo">
+            <header>
+                <img src="pics/banger.png" alt="" style="width:250px; height:100px;"/>
+                <div class="headers"><h1>TMS</h1></div>
+                <div class="widgets">
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                </div>
+        </div>
+        <div class="top-container">
+            <h1>Timetable Management System</h1>
+            <div class="topnav">
+               <a class="active"  th:href = "@{/gotomakeTimetableRow}">Make Time Slot</a>    
+               <a th:href = "@{/timetableEdit}">Timetable Management</a> 
+               <a th:href = "@{/goaddTeacher}">Teacher Management</a> 
+               <a th:href = "@{/editRooms}">Rooms Management</a>  
+               <a th:href = "@{/timetablerRoomspage}">Room Reservations</a>
+              
+                 
+				
+				 <div class="topnav-right">
+                    <a th:href = "@{/logInView}">Logout</a>    
+                    <a id="username"  style="color:white"></a>
+      
+                </div>    
+
+				 <script th:inline="javascript">
+
+/*<![CDATA[*/
+  var myval = /*[[${mykey}]]*/ "Test";
+  var listVals = /*[[${myList}]]*/ "Test1";
+/*]]>*/
+
+console.log("check "+myval);
+ var usernameDiv = document.getElementById("username");
+ var tq = document.createTextNode(myval);
+ var q = document.createElement("P");
+ q.appendChild(tq);
+ usernameDiv.appendChild(q);
+ 
+ var mainDiv = document.getElementById("main");
+ for(i=0; i<listVals.length; i++){
+	 //create text node
+	 var t = document.createTextNode(listVals[i].name+' '+listVals[i].age);
+	 //create para node
+	 var p = document.createElement("P");
+	 //attach text to para
+	 p.appendChild(t);
+	 //attach para to div
+	 mainDiv.appendChild(p);
+ }
+ 
+
+</script>
+            </div>  
+          
+            <div class="limiter" >
+		<div class="container-login100" >
+			
+				
+				<form class="login100-form validate-form" id="" th:object="${classes}" action="#"
+							 method="POST" th:action="@{/makeTimetableRow}" style="padding-top: 20px;">
+			
+							
+                                    
+					<span class="login100-form-title p-b-34">
+						Add a Class to Timetable
+					</span>
+					
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Date">
+						<input  class="input100" th:field="*{date}" type="text"  placeholder="Date">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Day">
+						<input class="input100" th:field="*{day}" type="text"  placeholder="Day">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Select Time">
+						<input  class="input100" th:field="*{time}" type="text"  placeholder="Select Time">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Venue">
+						<input class="input100" th:field="*{venue}" type="text"  placeholder="Venue">
+						<span class="focus-input100"></span>
+					</div>
+                                    
+					 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Lecturer Name">
+						<input class="input100" th:field="*{lecturerName}" type="text" placeholder="Lecturer Name">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Batch">
+						<input class="input100" th:field="*{batch}" type="text" placeholder="Batch">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Module">
+						<input class="input100" th:field="*{module}" type="text" placeholder="Module">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Degree Type">
+						<input class="input100" th:field="*{degreeType}" type="text" placeholder="Degree Type">
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+					
+                                    
+					
+
+					<div class="container-login100-form-btn">
+						<button type="submit" onclick="submit()" value="Reset form" class="login100-form-btn">
+							Make Class
+						</button>
+					</div>
+				</form>
+				
+			
+                          
+                          <script> 
+function submit() { 
+  /*Put all the data posting code here*/ 
+ document.getElementById("makeForm").reset(); 
+} 
+</script> 
+				
+		</div>
+	</div>
+            
+            <div class="outbox">
+            <footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a href="HomePage.html">Home</a>		
+                                        <a href="AboutUs.html">About Us</a>
+					<a href="ContactUs.html">Contact</a>
+				</p>
+
+				<p class="footer-company-name">TMS  2020</p>
+
+			</div>
+
+			<div class="footer-right">
+
+				<form method="get" action="#">
+					<input placeholder="Search our website" name="search" />
+					<i class="fa fa-search"></i>
+                                         
+				</form>
+
+			</div>
+
+            </footer>
+            </div>
+        </div>
+        
+    </body>
+</html>

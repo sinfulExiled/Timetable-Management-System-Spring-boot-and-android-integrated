@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TMS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/pics/banger.png" type="image/gif" sizes="16x16" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="LoggedInusers/HomePageCss2.css" rel="stylesheet"
+	type="text/css" />
+
+<link href="/HomePageCss2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	<style>
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+.cal-background {
+	background: #0000FF;
+}
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
+
+.btnhighlight {
+	background-color: #666;
+  	color: white;
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
+}
+</style>
+</head>
+
+<body>
+
+
+	<div class="top-logo">
+		<header>
+			<img src="/pics/banger.png" alt=""
+				style="width: 250px; height: 100px;" />
+			<div class="headers">
+				<h1>TMS</h1>
+			</div>
+
+			<div class="widgets">
+				<a href="https://www.facebook.com/" class="fa fa-facebook"></a> <a
+					href="https://twitter.com/" class="fa fa-twitter"></a>
+			</div>
+		</header>
+	</div>
+	<div class="top-container">
+		<h1>Timetable Management System</h1>
+		<div class="topnav">
+
+			<a class="active" th:href = "@{/gotoStuHome}">View Timetable</a>
+				<a th:href = "@{/viewStuHolidays}">Holidays</a>  
+
+			<div class="logged topnav-right">
+				<h3 id="username"></h3>
+
+			</div>
+
+			
+		</div>
+		<div class="main">
+			
+
+
+			<br>
+			
+
+<div class="month">      
+  <ul>
+    <li class="prev">&#10094;</li>
+    <li class="next">&#10095;</li>
+    <li>
+      January<br>
+      <span style="font-size:18px">2021</span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+  <li>Su</li>
+</ul>
+
+
+<ul id="myDIV" class="days">  
+
+  <li><button id="one" class="btn">1</button></li>
+  <li><button id="two" class="btn">2</button></li>
+  <li><button class="btn">3</button></li>
+  <li><button class="btn">4</button></li>
+  <li><button class="btn">5</button></li>
+  <li><button class="btn">6</button></li>
+   <li><button class="btn">7</button></li>
+  <li><button class="btn">8</button></li>
+  <li><button class="btn">9</button></li>
+  <li><button class="btn">10</button></li>
+  <li><button class="btn">11</button></li>
+  <li><button class="btn">12</button></li>
+  <li><button class="btn">13</button></li>
+  <li><button class="btn">14</button></li>
+  <li><button class="btn">15</button></li>
+  <li><button class="btn">16</button></li>
+  <li><button class="btn">17</button></li>
+  <li><button class="btn">18</button></li>
+  <li><button class="btn">19</button></li>
+  <li><button class="btn">20</button></li>
+  <li><button class="btn">21</button></li>
+  <li><button class="btn">22</button></li>
+  <li><button class="btn">23</button></li>
+  <li><button class="btn">24</button></li>
+ <li><button class="btn">25</button></li>
+  <li><button class="btn">26</button></li>
+  <li><button class="btn">27</button></li>
+  <li><button class="btn">28</button></li>
+  <li><button class="btn">29</button></li>
+  <li><button class="btn">30</button></li>
+  <li><button class="btn">31</button></li>
+</ul>
+			
+			<br>
+
+
+<table class="table table-bordered">
+		<thead>
+			<tr> 
+				<th>HolidayDate</th>
+				<th>HolidayDate</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="holiday : ${HolidaysList}">
+				<td th:text="${holiday.HolidayDate}"></td>
+				<td th:text="${holiday.HolidayName}"></td>
+				
+				
+				
+			</tr>
+				
+
+		</tbody>
+	</table>
+
+
+		</div>
+<script th:inline="javascript">
+/*<![CDATA[*/
+var myval = /*[[${mykey}]]*/ "Test";
+var listholidays = /*[[${RoomsList}]]*/ "Test1";
+/*]]>*/
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btn");
+var current = document.getElementsByClassName("btnhighlight");
+console.log("console"+btns.length);
+for (var i = 0; i < btns.length; i++) {
+  
+  
+  if(i==1){
+	  btns[1].className += " btnhighlight";
+  }
+  if(i==5){
+	  btns[5].className += " btnhighlight";
+  }
+  if(i==11){
+	  btns[11].className += " btnhighlight";
+  }
+  if(i==21){
+	  btns[21].className += " btnhighlight";
+  }
+  
+   
+  
+}
+
+
+</script>
+ 
+	
+
+
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <title>TMS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="pics/banger.png" type="image/gif" sizes="16x16"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+        <link href="css/LogInCss.css" rel="stylesheet" type="text/css"/>
+       
+    </head>
+<body>
+
+
+	<div class="top-logo">
+		<header>
+			<img src="pics/banger.png" alt=""
+				style="width: 250px; height: 100px;" />
+			<div class="headers">
+				<h1>TMS</h1>
+			</div>
+			<div class="widgets">
+				<a href="https://www.facebook.com/" class="fa fa-facebook"></a> <a
+					href="https://twitter.com/" class="fa fa-twitter"></a>
+			</div>
+		</header>
+	</div>
+
+	<div class="top-container">
+		<h1>Timetable Management</h1>
+		<div class="topnav">
+			<a href="index.html">Home</a> <a href="AboutUs.html">About Us</a> <a
+				class="active" href="contactUs.jsp">Contact</a>
+			<div class="logged topnav-right">
+				<a href="logIn.jsp">LogIn</a> <a href="signUp.jsp">Sign Up</a>
+			</div>
+		</div>
+
+		<div class="main">
+
+			<br>
+			<hr>
+			<div class="limiter">
+				<div class="container-login100" >
+
+					<div>
+				
+
+						<form class="login100-form validate-form" th:object="${enquiry}" action="#"
+							th:action="@{/makeEnquiry}" method="POST">
+
+
+
+							<span class="login100-form-title p-b-34"> Make a Query </span>
+
+							<div
+								class="wrap-input100 rs1-wrap-input100 validate-input m-b-20"
+								data-validate="Enter Name">
+								<input type="text" th:field="*{name}" placeholder="Enter Name"
+									class="input100"> <span class="focus-input100"></span>
+							</div>
+							<div
+								class="wrap-input100 rs2-wrap-input100 validate-input m-b-20"
+								data-validate="Email">
+								<input type="email" th:field="*{email}" class="input100" placeholder="Enter Email">
+								<span class="focus-input100"></span>
+							</div>
+
+							<div
+								class="wrap-input100 rs1-wrap-input100 validate-input m-b-20"
+								data-validate="Descrption">
+								<textarea class="input100" th:field="*{description}" type="text" placeholder="Descrption"></textarea>
+
+
+							</div>
+
+
+
+
+
+							<div class="container-login100-form-btn">
+								<button type="submit" class="login100-form-btn">Enter</button>
+
+							</div>
+
+						</form>
+
+
+
+					</div>
+				</div>
+
+
+
+			</div>
+			<div class="outbox">
+				<footer class="footer-distributed">
+
+					<div class="footer-left">
+
+						<p class="footer-links">
+							<a href="../LogHomePage.html">Home</a> <a
+								href="../VisitingPage.html">Visit</a> <a
+								href="../PublishAccom.html">Publish</a> <a
+								href="../AboutUs.html">About Us</a> <a href="../ContactUs.html">Contact</a>
+						</p>
+
+						<p class="footer-company-name">TMS 2020</p>
+
+					</div>
+
+					<div class="footer-right">
+
+						<form method="get" action="#">
+							<input placeholder="Search our website" name="search" /> <i
+								class="fa fa-search"></i>
+
+						</form>
+
+					</div>
+
+				</footer>
+			</div>
+		</div>
+</body>
+</html>
